@@ -27,3 +27,34 @@ pip install -r requirements.txt
 - Python 3.9+
 - PyTorch with CUDA support
 - NYU HPC Greene cluster
+
+**Training Experiments**
+
+**Train ViT-Tiny (Baseline)**
+
+```bash
+python train_deit_imagenet100.py \
+  --data-path /path/to/imagenet100 \
+  --model vit_tiny \
+  --epochs 5 \
+  --batch-size 128 \
+  --lr 5e-4 \
+  --run-name baseline_vit_tiny
+```
+
+**Train DeiT-Tiny (with Knowledge Distillation)**
+
+```bash
+python train_deit_imagenet100.py \
+  --data-path /path/to/imagenet100 \
+  --model deit_tiny_distill \
+  --teacher resnet18 \
+  --epochs 5 \
+  --batch-size 128 \
+  --lr 5e-4 \
+  --run-name deit_tiny_distill
+```
+- Uses a ResNet-18 teacher
+- Includes a distillation token
+- Combines cross-entropy loss with soft distillation loss
+
