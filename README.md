@@ -58,3 +58,16 @@ python train_deit_imagenet100.py \
 - Includes a distillation token
 - Combines cross-entropy loss with soft distillation loss
 
+## Evaluation and Qualitative Visualization
+
+### ViT vs DeiT Qualitative Comparison
+
+To qualitatively compare the predictions of **ViT-Tiny** and **DeiT-Tiny**, we use the following script:
+
+```bash
+python viz_random_10_vit_vs_deit.py
+```
+
+This script randomly samples 10 validation images, runs both ViT and DeiT on the same images and saves a comparison image (vit_vs_deit_random10.png). 
+Displays for each image: Ground Truth (GT) ViT prediction DeiT prediction
+
